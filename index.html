@@ -4,12 +4,6 @@
         <title> Sinaliza </title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-        <script type="text/javascript">
-            function Nova()
-            {
-                location.href = "GerenciarCadastro.php"
-            }
-        </script>
     </head>
 
     <body>	
@@ -28,7 +22,7 @@
                         <h3>Identifique-se</h3>
                     </div>
                     <!--Parte do formulario do login -->
-                    <form action = "Acesso.php" method="post">
+                    <form action = "Acesso.php" method="post" style="margin-bottom: 0em">
                         <div class="panel-body" style="padding-bottom: 5%">
                             <h4>Login:</h4>
                             <input type="text" name="login" class="form-control" placeholder="" aria-describedby="basic-addon1"> 
@@ -37,7 +31,7 @@
                         </div>
                         <div class="panel-footer" style="padding-bottom: 10%">
                             <input type="submit" value="Login" class="btn btn-default" style="width: 45%; float: right">
-                            <input type="button" value="Cadastrar-se" onClick="Nova()" class="btn btn-default" style="width: 45%; float: right">
+                            <a href="cadastro.html"><input type="button" value="Cadastrar-se" class="btn btn-default" style="width: 45%; float: left"></a>
                         </div>
                     </form> 
                 </div>
