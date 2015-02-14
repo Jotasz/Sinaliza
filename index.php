@@ -32,7 +32,7 @@
                         </div>
                         <div class="panel-footer" style="padding-bottom: 12%">
                             <input type="submit" value="Login" class="btn btn-default" style="width: 45%; float: right">
-                            <a href="cadastro.html"><input type="button" value="Cadastrar-se" class="btn btn-default" style="width: 45%; float: left"></a>
+                            <a href="cadastro.php"><input type="button" value="Cadastrar-se" class="btn btn-default" style="width: 45%; float: left"></a>
                         </div>
                     </form> 
                 </div>

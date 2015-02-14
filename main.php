@@ -5,16 +5,11 @@
         <title> Sinaliza - Inicio</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="css/elements.css" />
-        <style>
-	    /*Criar Classes de Estilo:
-	     * - Módulo Ativado
-	     * - Módulo Desativao
-        </style>
+		<link type="text/css" rel="stylesheet" href="css/elements.css" />
     </head>
     <body>
 	
-	<!-- UP BAR -->
+		<!-- UP BAR -->
         <div class="alert alert-success" >
             Olá FULANO
             <a style="float: right; padding-left: 2%" href=""> Sair</a>
@@ -44,8 +39,8 @@
 			    <p id="block_label_number"><span class="label label-success">1</span></p>
 			    <p id="block_label_name">Primeiros<br>Socorros</p>
 			</div>
-			<button class="btn btn-success" style="width:80%; margin-left: 10%; margin-bottom: 5%">Conteúdo <span style="float: right">&#10003</span></button>
-			<button class="btn btn-success" style="width:80%; margin-left: 10%">Teste <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" id="block_button">Conteúdo <span style="float: right">&#10003</span></button>
+			<button class="btn btn-success" id="block_button">Teste <span style="float: right">&#10008</span></button>
 		    </div>
 		    
 		    <!-- MÓDULO MEC -->
@@ -55,8 +50,8 @@
 			    <p id="block_label_number"><span class="label label-default">2</span></p>
 			    <p id="block_label_name">Mecânica de<br>Automóveis</p>
 			</div>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%; margin-bottom: 5%">Conteúdo <span style="float: right">&#10008</span></button>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%">Teste <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
 		    </div>
 		    
 		    <!-- MÓDULO LEG -->
@@ -66,8 +61,8 @@
 			    <p id="block_label_number"><span class="label label-default">3</span></p>
 			    <p id="block_label_name">Legislação de<br>Trânsito</p>
 			</div>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%; margin-bottom: 5%">Conteúdo <span style="float: right">&#10008</span></button>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%">Teste <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
 		    </div>
 		    
 		    <!-- MÓDULO DIR -->
@@ -77,8 +72,8 @@
 			    <p id="block_label_number"><span class="label label-default">4</span></p>
 			    <p id="block_label_name">Direção<br>Defensiva</p>
 			</div>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%; margin-bottom: 5%">Conteúdo <span style="float: right">&#10008</span></button>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%">Teste <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
 		    </div>
 		    
 		    <!-- MÓDULO MAM -->
@@ -88,8 +83,8 @@
 			    <p id="block_label_number"><span class="label label-default">5</span></p>
 			    <p id="block_label_name">Meio<br>Ambiente</p>
 			</div>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%; margin-bottom: 5%">Conteúdo <span style="float: right">&#10008</span></button>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%">Teste <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
 		    </div>
 		    
 		    <!-- MÓDULO TFI -->
@@ -99,8 +94,8 @@
 			    <p id="block_label_number"><span class="label label-default">6</span></p>
 			    <p id="block_label_name">Teste<br>Final</p>
 			</div>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%; margin-bottom: 5%">Conteúdo <span style="float: right">&#10008</span></button>
-			<button class="btn btn-success" disabled style="width:80%; margin-left: 10%">Teste <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+			<button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
 		    </div>
 		</div>
 	    </div>

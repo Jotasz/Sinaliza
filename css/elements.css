@@ -43,3 +43,13 @@
     margin-top: 8%;
     font-weight: bold;
 }
+
+#block_button{
+    width:80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+#alternative{
+    /*vertical-align: middle;*/
+}
