@@ -22,7 +22,7 @@
                         <h3>Identifique-se</h3>
                     </div>
                     <!--Parte do formulario do login -->
-                    <form action = "Acesso.php" method="post" style="margin-bottom: 0em; height: inherit">
+                    <form action = "acesso.php" method="post" style="margin-bottom: 0em; height: inherit">
                         <div class="panel-body" style="padding-bottom: 5%">
                             <h4>Login:</h4>
                             <input type="text" name="login" class="form-control" placeholder="" aria-describedby="basic-addon1"> 
@@ -35,13 +35,25 @@
                         </div>
                     </form> 
                 </div>
-                
-                <!-- MENSAGEM DE ERRO -->
-                <div class="alert alert-danger" role="alert">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                      <span class="sr-only">Erro:</span>
+                <?php
+                //iniciando a sessão 
+                session_start();
+
+                //verifica se precisa inserir mensagem de erro
+                if (isset($_SESSION['erro']) == TRUE) {
+                    ?>
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Erro:</span>
                         Email ou Senha inválidos.
-                </div>
+                    </div>
+                    <?php
+                    $_SESSION['erro'] = "erro";
+                } else {
+                    $_SESSION['erro'] = "erro";
+                }
+                ?>
+
             </div>
         </div>
     </body>
