@@ -1,0 +1,55 @@
+/*Author: Carlos Magno*/
+
+#block{
+    margin-left: auto;
+    margin-right: auto;
+    height: 60%;
+    width: 13%;
+    display: inline-block;
+}
+
+#block_image{
+    height: 25%;
+    width: 60%;
+}
+
+#block_enable_label{
+    border: 3px solid #5CB85C;
+    border-radius: 100%;
+    width: 80%;
+    height: 40%;
+    margin: auto;
+    margin-bottom: 10%;
+}
+
+#block_disable_label{
+    border: 3px solid #95D195;
+    border-radius: 100%;
+    width: 80%;
+    height: 40%;
+    margin: auto;
+    margin-bottom: 10%;
+}
+
+#block_label_number{
+    text-align: center;
+    margin-bottom: 0%;
+    margin-top: 9%;
+    font-size: 1.6em;
+}
+
+#block_label_name{
+    text-align: center;
+    margin-top: 8%;
+    font-weight: bold;
+}
+
+#block_button{
+    width:80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+#alternative{
+    /*vertical-align: middle;*/
+}

@@ -44,10 +44,11 @@ Aqui estará escrito o conteúdo. Só tem um probleminha: pra formatar os textos
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tópico 2</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Tópico 3</a></li>
                     </ul>
-                </div>
-
-                <button class="btn btn-defaul" type="button" style="width: 100%; margin-bottom: 10%">Tela Principal</button>
-                <button class="btn btn-defaul" type="button" style="width: 100%">Realizar Tese</button>
+                </div>                
+                <a href="main.php">
+                <button class="btn btn-default" type="button" style="width: 100%; margin-bottom: 10%">Tela Principal</button>
+                </a>
+                <button class="btn btn-default" type="button" style="width: 100%">Realizar Tese</button>
             </div>
 
         </div>
