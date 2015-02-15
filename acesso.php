@@ -7,8 +7,17 @@
 </head>
 <body>
 	<?php
-	
-		echo "<h2>Usuário: " . $_POST["email"] . "<br>" . "Senha: " . $_POST["senha"] . "</h2>" ;
+	require "DAO.php";
+
+	DAO::connect();
+
+	if(DAO::validaLogin($_POST["email"], $_POST["senha"])){
+		header("Location: main.php");
+	}else{
+		header("Location: index.php");
+	}
+	exit();
+
 
 	?>
 </body>
