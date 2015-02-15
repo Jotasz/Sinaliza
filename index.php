@@ -1,5 +1,4 @@
 <html>
-
     <head>
         <title> Sinaliza </title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -36,15 +35,28 @@
                         </div>
                     </form> 
                 </div>
-                
-                <!-- MENSAGEM DE ERRO -->
-                <div class="alert alert-danger" role="alert">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                      <span class="sr-only">Erro:</span>
+                <?php
+                //iniciando a sessão 
+                session_start();
+
+                //verifica se precisa inserir mensagem de erro
+                if (isset($_SESSION['erro']) == TRUE) {
+                    ?>
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Erro:</span>
                         Email ou Senha inválidos.
-                </div>
+                    </div>
+                    <?php
+                    $_SESSION['erro'] = "erro";
+                } else {
+                    $_SESSION['erro'] = "erro";
+                }
+                ?>
+
             </div>
         </div>
     </body>
 
 </html>
+

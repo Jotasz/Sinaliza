@@ -1,11 +1,11 @@
 <html>
-    
+
     <head>
         <title> Sinaliza - Cadastro</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
     </head>
-        
+
     <body>
         <div style="padding: 5% 5% 5% 5%;">
 			<div style="width: 45%; float: left; padding-right: 7%">
@@ -41,17 +41,18 @@
 					</div>
 					<div class="panel-body" style="padding-bottom: 5%">
 						<textarea style="height: 52%; width: 100%; text-align: justify; background-color: white" disabled=>
+
 1. É dever do aluno...
 2. O site não compromete em...
 3. Não será permitido...
     3.1 Do site
     3.2 Do Aluno
 4. Blablabla
-                                                </textarea>
-					</div>
-				</div>
-			</div>
-		</div>
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
-    
+
 </html>
