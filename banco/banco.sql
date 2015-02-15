@@ -1,4 +1,4 @@
-CREATE DATABASE sinal;
+
 
 create table aluno (
 	id integer primary key,
