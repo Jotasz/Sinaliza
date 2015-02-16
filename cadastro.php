@@ -1,5 +1,5 @@
 <html>
-
+    
     <head>
         <title> Sinaliza - Cadastro</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -13,22 +13,25 @@
 					<div class="panel-heading">
 						<h3>Novo Aluno</h3>
 					</div>
-					<div class="panel-body" style="padding-bottom: 5%">
-						<h4>Nome:</h4>
-						<input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-						<h4>Email:</h4>
-						<input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-                                                <h4>Senha:</h4>
-						<input type="text" class="form-control" placeholder="" aria-describedby="basic-addon1">
-                                                <div style="padding-top: 5%">
-                                                    <p style="font-size: 1.5em"><input type="checkbox"> Li e aceito todos os termos de uso.</p>
-                                                </div>
-                                                
-					</div>
-					<div class="panel-footer" style="padding-bottom: 10%">
-						<a href="index.php"><button type="button" class="btn btn-default" style="width: 45%; float: left"> Cancelar </button></a>
-						<button type="button" class="btn btn-default" style="width: 45%; float: right"> Cadastrar-se </button>
-					</div>
+					<form action = "novoaluno.php" method="post">
+						<div class="panel-body" style="padding-bottom: 5%">
+							<h4>Nome:</h4>
+							<input type="text" name="nome" class="form-control" placeholder="" aria-describedby="basic-addon1">
+							<h4>Email:</h4>
+							<input type="text" name="email" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                            <h4>Senha:</h4>
+							<input type="text" name="senha" class="form-control" placeholder="" aria-describedby="basic-addon1">
+	                        <div style="padding-top: 5%">
+	                            <p style="font-size: 1.5em"><input type="checkbox" name="check"> Li e aceito todos os termos de uso.</p>
+	                        </div>
+	                                                
+						</div>
+					
+						<div class="panel-footer" style="padding-bottom: 10%">
+							<a href="index.php"><button type="button" class="btn btn-default" style="width: 45%; float: left"> Cancelar </button></a>
+							<button type="submit" class="btn btn-default" style="width: 45%; float: right"> Cadastrar-se </button>
+						</div>
+					</form>
 				</div>
 			</div>
                         <div style="width: 45%; float: right; padding-right: 7%">

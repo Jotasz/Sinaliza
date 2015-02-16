@@ -25,9 +25,9 @@
                     <form action = "acesso.php" method="post" style="margin-bottom: 0em; height: inherit">
                         <div class="panel-body" style="padding-bottom: 5%">
                             <h4>Login:</h4>
-                            <input type="text" name="login" class="form-control" placeholder="" aria-describedby="basic-addon1"> 
+                            <input type="text" name="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1"> 
                             <h4>Senha:</h4>
-                            <input type="password" name="senha" class="form-control" placeholder="" aria-describedby="basic-addon1">
+                            <input type="password" name="senha" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
                         </div>
                         <div class="panel-footer" style="padding-bottom: 12%">
                             <input type="submit" value="Login" class="btn btn-default" style="width: 45%; float: right">

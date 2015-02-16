@@ -1,0 +1,33 @@
+<?php
+
+/**
+* 
+*/
+class DAO 
+{
+	
+	const database = "sinal";
+	const host = "locahost";
+	const user = "root";
+	const password = "123456";
+
+	private $pdo;
+
+	public function __construc(){
+		$this->pdo = new PDO("mysql:host=".$this->host.";dbname=".$this->database, $this->user, $this->password);
+	}
+
+	public function novoAluno($nome, $email, $senha){
+		
+		/*CHECAGEM DE EMAIL*/
+		
+		/*INSERT*/
+		$stmt = $this->pdo->prepare("INSERT INTO aluno(nome, email, senha) VALUES(?, ?, ?)");
+		$stmt->bindParam(1, $nome);
+		$stmt->bindParam(2, $email);
+		$stmt->bindParam(3, $senha);
+		$stmt->execute();
+	}
+}
+
+?>
