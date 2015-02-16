@@ -1,24 +1,23 @@
 
 
 create table aluno (
-	id integer primary key,
+	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nome varchar(20) NOT NULL,
 	email varchar(15) NOT NULL,
-	login varchar(15) NOT NULL,
 	senha varchar(15) NOT NULL,
-	data varchar(10) NOT NULL,
+	data varchar(10),
 	modulo integer
 );
 
 create table modulo (
-	id integer primary key,
+	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nome varchar(50) NOT NULL,
 	descricao TEXT NOT NULL,
 	tipo integer NOT NULL
 );
 
 create table  testesrealizados (
-	id integer primary key,
+	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	idaluno integer REFERENCES aluno (id) ON DELETE CASCADE,
 	idteste integer REFERENCES teste (id) ON DELETE CASCADE,
 	tipo integer NOT NULL,
@@ -32,7 +31,7 @@ create table teste (
 );
 
 create table  questao (
-	id integer PRIMARY KEY NOT NULL,
+	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	tipo integer NOT NULL,
 	pergunta TEXT NOT NULL,
 	alternativa1 TEXT NOT NULL,
@@ -43,7 +42,7 @@ create table  questao (
 );
 
 create table  conteudo (
-	id integer PRIMARY KEY NOT NULL,
+	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	idmodulo integer REFERENCES modulo (id) ON DELETE CASCADE,
 	nome TEXT NOT NULL,
 	texto TEXT NOT NULL,
