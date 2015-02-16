@@ -22,7 +22,7 @@
                         <h3>Identifique-se</h3>
                     </div>
                     <!--Parte do formulario do login -->
-                    <form action = "acesso.php" method="post" style="margin-bottom: 0em; height: inherit">
+                    <form action = "logic/acesso.php" method="post" style="margin-bottom: 0em; height: inherit">
                         <div class="panel-body" style="padding-bottom: 5%">
                             <h4>Login:</h4>
                             <input type="text" name="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1"> 
@@ -31,13 +31,17 @@
                         </div>
                         <div class="panel-footer" style="padding-bottom: 12%">
                             <input type="submit" value="Login" class="btn btn-default" style="width: 45%; float: right">
-                            <a href="cadastro.php"><input type="button" value="Cadastrar-se" class="btn btn-default" style="width: 45%; float: left"></a>
+                            <a href="gui/cadastro.php"><input type="button" value="Cadastrar-se" class="btn btn-default" style="width: 45%; float: left"></a>
                         </div>
                     </form> 
                 </div>
                 <?php
                 //iniciando a sessão 
                 session_start();
+
+                if (isset($_SESSION['email']) == TRUE && isset($_SESSION['senha']) == TRUE) {
+                    header("Location: main.php");
+                }
 
                 //verifica se precisa inserir mensagem de erro
                 if (isset($_SESSION['erro']) == TRUE) {
