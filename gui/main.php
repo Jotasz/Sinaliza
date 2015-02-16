@@ -8,22 +8,11 @@
         <link type="text/css" rel="stylesheet" href="../css/elements.css" />
     </head>
     <body>
-        <?php 
-            require_once "../infra/DAO.php";
-            require_once "../model/aluno.php";
-            DAO::connect();
-            session_start();
-            if(isset($_SESSION["email"])){
-                $aluno = DAO::getAluno($_SESSION["email"]);
-                $progresso = round(($aluno->getModulo()*100)/6);
-            }else{
-                header("../util/erro.php");
-            }
-        ?>
+
         <!-- UP BAR -->
         <div class="alert alert-success" >
-            Olá <?php echo $aluno->getNome(); ?>
-            <a style="float: right; padding-left: 2%" href="../util/sair.php"> Sair</a>
+            Olá FULANO
+            <a style="float: right; padding-left: 2%" href=""> Sair</a>
             <a style="float: right" href=""> Meu Perfil  </a>
         </div>
 
@@ -33,20 +22,81 @@
                 <div class="panel-heading" style="font-size: 1.5em">
                     <span style="font-size: 1.6em">Progresso:</span>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<?php echo $progresso;?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $progresso;?>%;">
-                            <?php echo $progresso;?>%
+                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            60%
                         </div>
                     </div>
-                    <span style="margin-right: 2%"><strong>Iniciou em:</strong> <?php echo $aluno->getData(); ?> </span>
-                    <span><strong>Módulo atual:</strong> <?php echo $aluno->getModulo(); ?> </span>
+                    <span style="margin-right: 2%"><strong>Iniciou em:</strong> dd/mm/aaaa</span>
+                    <span><strong>Módulo atual:</strong> MÓDULO ATUAL</span>
                 </div>
 
                 <!--PANEL BODY-->
                 <div class="panel-body"> <center>
-                        <?php 
-                            require_once 'nucleo.php';
-                            print_mods($aluno->getModulo());
-                        ?>
+                        <!-- MÓDULO PSO -->
+                        <div id="block">
+                            <p style="text-align: center"><img id="block_image" src="../icons/psocorros.png"/></p>
+                            <div id="block_enable_label">
+                                <p id="block_label_number"><span class="label label-success">1</span></p>
+                                <p id="block_label_name">Primeiros<br>Socorros</p>
+                            </div>
+                            <button class="btn btn-success" id="block_button">Conteúdo <span style="float: right">&#10003</span></button>
+                            <button class="btn btn-success" id="block_button">Teste <span style="float: right">&#10008</span></button>
+                        </div>
+
+                        <!-- MÓDULO MEC -->
+                        <div id="block">
+                            <p style="text-align: center"><img id="block_image" src="../icons/mecanica.png"/></p>
+                            <div id="block_disable_label">
+                                <p id="block_label_number"><span class="label label-default">2</span></p>
+                                <p id="block_label_name">Mecânica de<br>Automóveis</p>
+                            </div>
+                            <button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+                            <button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
+                        </div>
+
+                        <!-- MÓDULO LEG -->
+                        <div id="block">
+                            <p style="text-align: center"><img id="block_image" src="../icons/legislacao.png"/></p>
+                            <div id="block_disable_label">
+                                <p id="block_label_number"><span class="label label-default">3</span></p>
+                                <p id="block_label_name">Legislação de<br>Trânsito</p>
+                            </div>
+                            <button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+                            <button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
+                        </div>
+
+                        <!-- MÓDULO DIR -->
+                        <div id="block">
+                            <p style="text-align: center"><img id="block_image" src="../icons/ddefensiva.png"/></p>
+                            <div id="block_disable_label">
+                                <p id="block_label_number"><span class="label label-default">4</span></p>
+                                <p id="block_label_name">Direção<br>Defensiva</p>
+                            </div>
+                            <button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+                            <button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
+                        </div>
+
+                        <!-- MÓDULO MAM -->
+                        <div id="block">
+                            <p style="text-align: center"><img id="block_image" src="../icons/mambiente.png"/></p>
+                            <div id="block_disable_label">
+                                <p id="block_label_number"><span class="label label-default">5</span></p>
+                                <p id="block_label_name">Meio<br>Ambiente</p>
+                            </div>
+                            <button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+                            <button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
+                        </div>
+
+                        <!-- MÓDULO TFI -->
+                        <div id="block">
+                            <p style="text-align: center"><img id="block_image" src="../icons/aprovado.png"/></p>
+                            <div id="block_disable_label">
+                                <p id="block_label_number"><span class="label label-default">6</span></p>
+                                <p id="block_label_name">Teste<br>Final</p>
+                            </div>
+                            <button class="btn btn-success" disabled id="block_button">Conteúdo <span style="float: right">&#10008</span></button>
+                            <button class="btn btn-success" disabled id="block_button">Teste <span style="float: right">&#10008</span></button>
+                        </div>
                 </div>
             </div>
         </div>

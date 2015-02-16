@@ -1,11 +1,9 @@
-CREATE DATABASE sinal;
 
-USE sinal;
 
 create table aluno (
 	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	nome varchar(80) NOT NULL,
-	email varchar(40) NOT NULL,
+	nome varchar(20) NOT NULL,
+	email varchar(15) NOT NULL,
 	senha varchar(15) NOT NULL,
 	data varchar(10),
 	modulo integer
