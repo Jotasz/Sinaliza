@@ -6,10 +6,7 @@ require_once "../infra/DAO.php";
 require_once "../model/aluno.php";
 
 DAO::connect();
-
-$aluno = new Aluno($_POST["nome"], $_POST["email"], $_POST["senha"]);
-
-$msg = DAO::novoAluno($aluno);
+DAO::novoAluno($_POST["nome"], $_POST["email"], $_POST["senha"]);
 if (isset($msg)) {
     $_SESSION['mensagem'] = $msg;
     header("Location: ../gui/cadastro.php");
