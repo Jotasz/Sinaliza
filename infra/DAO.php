@@ -1,6 +1,7 @@
 <?php
 
 require_once "../model/aluno.php";
+require_once "../model/teste.php";
 
 /**
  * Classe responsável por fazer as operações com o banco de dados
@@ -89,6 +90,42 @@ class DAO {
         $stmt->bindValue(":modulo", $modulo);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function geraTeste($email, $modulo){
+        $testesfeitos;
+        $idaluno;
+        $quests = array();
+        $stmt = self::$pdo_instance->prepare("SELECT id FROM aluno WHERE email=:email");
+        $stmt->bindValue(":email", $email);
+        $stmt->execute();
+        $stmt->fetch(PDO::FETCH_ASSOC);
+        $idaluno = $stmt["id"];
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE idaluno=:idaluno AND tipo=:modulo");
+        $stmt->bindValue(":idaluno", $idaluno);
+        $stmt->bindValue(":modulo", $modulo);
+        $stmt->execute();
+        while($teste=$stmt->fetch(PDO:FETCH_ASSOC)){
+            if($teste["nota"] >= 7.0){
+                return NULL;
+            }
+        }
+        if($modulo <= 5){
+            $num_q = 1;
+            $stmt = self::$pdo_instance->prepare("SELECT * FROM questao WHERE tipo=:tipo");
+            $stmt->bindValue(":tipo", $modulo);
+            $stmt->execute();
+            while ($questao=$stmt->fetch(PDO:FETCH_ASSOC)) {
+                $quests[$num_q++] = $questao;
+            }
+            $num_q--;
+            while(!empty($quests)){
+                $rand(1, $num_q)
+            }
+        }else{
+
+        }
+
     }
 
 }
