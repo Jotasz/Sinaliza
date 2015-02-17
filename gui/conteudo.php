@@ -3,7 +3,7 @@
     <head>
         <title> Sinaliza - Conteúdo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
     </head>
 
     <body>
@@ -14,16 +14,22 @@
             <a style="float: right" href=""> Meu Perfil  </a>
         </div>
 
+        <?php
+            require_once "../infra/DAO.php";
+            DAO::connect();
+            $conteudo = DAO::getConteudo($_POST["modulo"]);
+        ?>
+
         <div style="padding: 2% 2% 2% 2%">
 
             <!-- TEXT-AREA CONTEUDO -->
             <div class="panel panel-success" style="display: inline-block; width: 65%">
                 <div class="panel-heading">
-                    NOME_CONTEÚDO
+                    <?php echo $conteudo["nome"]; ?>
                 </div>
                 <div class="panel-body">
                     <textarea style="background-color: white; width: 100%; height: 60%; margin: auto; text-align: justify" disabled>
-Aqui estará escrito o conteúdo. Só tem um probleminha: pra formatar os textos aqui dentro é necessário usar javascript. Lascou!!
+<?php echo $conteudo["texto"]; ?>
                     </textarea>
                 </div>
             </div>

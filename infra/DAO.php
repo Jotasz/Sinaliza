@@ -10,7 +10,7 @@ class DAO {
     private static $database = "sinal";
     private static $host = "localhost";
     private static $user = "root";
-    private static $password = "";
+    private static $password = "123456";
     private static $pdo_instance;
 
     public function __construc() {
@@ -82,6 +82,13 @@ class DAO {
             }
         }
         return FALSE;
+    }
+
+    public static function getConteudo($modulo){
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM conteudo WHERE idmodulo=:modulo");
+        $stmt->bindValue(":modulo", $modulo);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
 }

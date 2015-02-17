@@ -15,7 +15,7 @@
             session_start();
             if(isset($_SESSION["email"])){
                 $aluno = DAO::getAluno($_SESSION["email"]);
-                $progresso = round(($aluno->getModulo()*100)/6);
+                $progresso = round((($aluno->getModulo()-1)*100)/6);
             }else{
                 header("../util/erro.php");
             }
@@ -34,11 +34,11 @@
                     <span style="font-size: 1.6em">Progresso:</span>
                     <div class="progress">
                         <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<?php echo $progresso;?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $progresso;?>%;">
-                            <?php echo $progresso;?>%
+                            <span style="color: black"><?php echo $progresso;?>%</span>
                         </div>
                     </div>
                     <span style="margin-right: 2%"><strong>Iniciou em:</strong> <?php echo $aluno->getData(); ?> </span>
-                    <span><strong>Módulo atual:</strong> <?php echo $aluno->getModulo(); ?> </span>
+                    <span><strong>Módulo atual:</strong> <?php echo ($aluno->getModulo() > 6) ? "Finalizado" : $aluno->getModulo(); ?> </span>
                 </div>
 
                 <!--PANEL BODY-->

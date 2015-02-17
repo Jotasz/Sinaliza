@@ -10,7 +10,10 @@ function print_mods($mod){
         <p id="block_label_number"><span class="label label-success">1</span></p>
         <p id="block_label_name">Primeiros<br>Socorros</p>
     </div>
-    <button class="btn btn-success" id="block_button">Conteúdo</button>
+    <form action="conteudo.php" method="post">
+        <input type="hidden" name="modulo" value="1">
+        <input type="submit" value="Conteúdo" class="btn btn-success" id="block_button">
+    </form>
     <button class="btn btn-success" id="block_button">Teste <span style="float: right"><?php echo ($mod > 1) ? "&#10003" : "&#10008"; ?></span></button>
 </div>
 
@@ -21,7 +24,10 @@ function print_mods($mod){
         <p id="block_label_number"><span class="label label-default">2</span></p>
         <p id="block_label_name">Mecânica de<br>Automóveis</p>
     </div>
-    <button class="btn btn-success" <?php echo ($mod >= 2) ? "" : "disabled"; ?> id="block_button">Conteúdo</button>
+    <form action="conteudo.php" method="post">
+        <input type="hidden" name="modulo" value="2">
+        <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 2) ? "" : "disabled"; ?> id="block_button">
+    </form>
     <button class="btn btn-success" <?php echo ($mod >= 2) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 2) ? "&#10003" : "&#10008"; ?></span></button>
 </div>
 
@@ -32,7 +38,10 @@ function print_mods($mod){
         <p id="block_label_number"><span class="label label-default">3</span></p>
         <p id="block_label_name">Legislação de<br>Trânsito</p>
     </div>
-    <button class="btn btn-success" <?php echo ($mod >= 3) ? "" : "disabled"; ?> id="block_button">Conteúdo</button>
+    <form action="conteudo.php" method="post">
+        <input type="hidden" name="modulo" value="3">
+        <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 3) ? "" : "disabled"; ?> id="block_button">
+    </form>
     <button class="btn btn-success" <?php echo ($mod >= 3) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 3) ? "&#10003" : "&#10008"; ?></span></button>
 </div>
 
@@ -43,7 +52,10 @@ function print_mods($mod){
         <p id="block_label_number"><span class="label label-default">4</span></p>
         <p id="block_label_name">Direção<br>Defensiva</p>
     </div>
-    <button class="btn btn-success" <?php echo ($mod >= 4) ? "" : "disabled"; ?> id="block_button">Conteúdo</button>
+    <form action="conteudo.php" method="post">
+        <input type="hidden" name="modulo" value="4">
+        <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 4) ? "" : "disabled"; ?> id="block_button">
+    </form>
     <button class="btn btn-success" <?php echo ($mod >= 4) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 4) ? "&#10003" : "&#10008"; ?></span></button>
 </div>
 
@@ -54,7 +66,10 @@ function print_mods($mod){
         <p id="block_label_number"><span class="label label-default">5</span></p>
         <p id="block_label_name">Meio<br>Ambiente</p>
     </div>
-    <button class="btn btn-success" <?php echo ($mod >= 5) ? "" : "disabled"; ?> id="block_button">Conteúdo</button>
+    <form action="conteudo.php" method="post">
+        <input type="hidden" name="modulo" value="5">
+        <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 5) ? "" : "disabled"; ?> id="block_button">
+    </form>
     <button class="btn btn-success" <?php echo ($mod >= 5) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 5) ? "&#10003" : "&#10008"; ?></span></button>
 </div>
 
