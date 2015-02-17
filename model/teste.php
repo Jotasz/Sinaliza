@@ -8,7 +8,7 @@
 		private $tempo; //em segundos
 		private $questoes;
 
-		public function __construct($tipo, $id_aluno, %questoes){
+		public function __construct($tipo, $id_aluno, $questoes){
 				$this->tipo = $tipo;
 				$this->id_aluno = $id_aluno;
 				$this->questoes = $questoes;

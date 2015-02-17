@@ -105,25 +105,29 @@ class DAO {
         $stmt->bindValue(":idaluno", $idaluno);
         $stmt->bindValue(":modulo", $modulo);
         $stmt->execute();
-        while($teste=$stmt->fetch(PDO:FETCH_ASSOC)){
+        while($teste=$stmt->fetch(PDO::FETCH_ASSOC)){
             if($teste["nota"] >= 7.0){
                 return NULL;
             }
         }
+        $quests_select = array();
         if($modulo <= 5){
-            $num_q = 1;
+            $num_q = 19;
             $stmt = self::$pdo_instance->prepare("SELECT * FROM questao WHERE tipo=:tipo");
             $stmt->bindValue(":tipo", $modulo);
             $stmt->execute();
-            while ($questao=$stmt->fetch(PDO:FETCH_ASSOC)) {
-                $quests[$num_q++] = $questao;
+            while ($questao=$stmt->fetch(PDO::FETCH_ASSOC)) {
+                $quests[] = $questao;
             }
-            $num_q--;
-            while(!empty($quests)){
-                $rand(1, $num_q)
+            while(count($quests_select) < 10){
+                $rand = rand(0, count($quests) - 1);
+                $quests_select = $quest[$rand];
+                unset($quests[$rand]);
+                array_values($quests);
             }
+            return new Teste($modulo, $idaluno, $quests_select);
         }else{
-
+            
         }
 
     }
