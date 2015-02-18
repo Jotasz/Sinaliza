@@ -1,6 +1,6 @@
 <?php
 	
-	class Tetse{
+	class Teste{
 
 		private $tipo;
 		private $nota;

@@ -93,14 +93,14 @@ class DAO {
     }
 
     public static function geraTeste($email, $modulo){
-        $testesfeitos;
         $idaluno;
         $quests = array();
+        $quests_select = array();
         $stmt = self::$pdo_instance->prepare("SELECT id FROM aluno WHERE email=:email");
         $stmt->bindValue(":email", $email);
         $stmt->execute();
-        $stmt->fetch(PDO::FETCH_ASSOC);
-        $idaluno = $stmt["id"];
+        $linha = $stmt->fetch(PDO::FETCH_ASSOC);
+        $idaluno = $linha["id"];
         $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE idaluno=:idaluno AND tipo=:modulo");
         $stmt->bindValue(":idaluno", $idaluno);
         $stmt->bindValue(":modulo", $modulo);
@@ -110,7 +110,6 @@ class DAO {
                 return NULL;
             }
         }
-        $quests_select = array();
         if($modulo <= 5){
             $num_q = 19;
             $stmt = self::$pdo_instance->prepare("SELECT * FROM questao WHERE tipo=:tipo");
@@ -121,11 +120,12 @@ class DAO {
             }
             while(count($quests_select) < 10){
                 $rand = rand(0, count($quests) - 1);
-                $quests_select = $quest[$rand];
+                $quests_select[] = $quests[$rand];
                 unset($quests[$rand]);
                 array_values($quests);
             }
-            return new Teste($modulo, $idaluno, $quests_select);
+            $novoteste = new Teste($modulo, $idaluno, $quests_select);
+            return $novoteste;
         }else{
             
         }

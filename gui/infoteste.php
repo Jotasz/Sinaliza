@@ -30,7 +30,7 @@
                         <h4>- Você realizou esse teste N veze.</h4>
                         <h4>- Média de Acerto: MED</h4>
                         <form action="teste_gui.php" method="post">
-                        	<input type="hidden" name="modulo" value="<?php echo $_POST["modulo"];?>">
+                        	<input type="hidden" name="modulo" value=<?php echo $_POST["modulo"];?>>
                         	<input type="submit" value="Iniciar" class="btn btn-default" style="float: right; width: 13%; margin-left: 2%">
                         </form>
                         <a href="main.php">

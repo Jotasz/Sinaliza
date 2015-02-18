@@ -12,7 +12,6 @@ class Aluno {
     public function __construct($nome, $email, $senha) {
         $this->nome = $nome;
         $this->email = $email;
-        //$this->data = date("m/d/y");
         $this->senha = $senha;
         $this->id = 0;
         $this->modulo = 0;
