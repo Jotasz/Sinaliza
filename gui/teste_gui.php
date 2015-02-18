@@ -3,8 +3,8 @@
     <head>
         <title> Sinaliza - Teste</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-        <link type="text/css" rel="stylesheet" href="css/elements.css" />
+        <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="../css/elements.css" />
     </head>
 
     <body>
@@ -44,6 +44,10 @@
                     </a>
                 </div>
             </div>
+            <button type="button" class="btn btn-default" style="float: right; width: 13%; margin-left: 2%">Próxima/Finalizar</button>
+                    <a href="">
+                        <button type="button" class="btn btn-default" style="float: right; width: 13%; margin-left: 2%">Desistir</button>
+                    </a>
         </div>
     </body>
 

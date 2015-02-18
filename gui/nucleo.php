@@ -14,7 +14,11 @@ function print_mods($mod){
         <input type="hidden" name="modulo" value="1">
         <input type="submit" value="Conteúdo" class="btn btn-success" id="block_button">
     </form>
-    <button class="btn btn-success" id="block_button">Teste <span style="float: right"><?php echo ($mod > 1) ? "&#10003" : "&#10008"; ?></span></button>
+    <form action="../gui/infoteste.php" method="post">
+    	<input type="hidden" name="modulo" value="1">
+    	<input type="submit" value="Teste <?php echo ($mod > 1) ? "&#10003" : "&#10008"; ?>" class="btn btn-success" id="block_button">
+    </form>
+    
 </div>
 
 <!-- MÓDULO MEC -->
@@ -28,7 +32,10 @@ function print_mods($mod){
         <input type="hidden" name="modulo" value="2">
         <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 2) ? "" : "disabled"; ?> id="block_button">
     </form>
-    <button class="btn btn-success" <?php echo ($mod >= 2) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 2) ? "&#10003" : "&#10008"; ?></span></button>
+    <form action="../gui/infoteste.php" method="post">
+    	<input type="hidden" name="modulo" value="2">
+    	<input type="submit" value="Teste <?php echo ($mod > 2) ? "&#10003" : "&#10008"; ?>" <?php echo ($mod >= 2) ? "" : "disabled"; ?> class="btn btn-success" id="block_button">
+    </form>
 </div>
 
 <!-- MÓDULO LEG -->
@@ -42,7 +49,10 @@ function print_mods($mod){
         <input type="hidden" name="modulo" value="3">
         <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 3) ? "" : "disabled"; ?> id="block_button">
     </form>
-    <button class="btn btn-success" <?php echo ($mod >= 3) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 3) ? "&#10003" : "&#10008"; ?></span></button>
+    <form action="../gui/infoteste.php" method="post">
+    	<input type="hidden" name="modulo" value="3">
+    	<input type="submit" value="Teste <?php echo ($mod > 3) ? "&#10003" : "&#10008"; ?>" <?php echo ($mod >= 3) ? "" : "disabled"; ?> class="btn btn-success" id="block_button">
+    </form>
 </div>
 
 <!-- MÓDULO DIR -->
@@ -56,7 +66,10 @@ function print_mods($mod){
         <input type="hidden" name="modulo" value="4">
         <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 4) ? "" : "disabled"; ?> id="block_button">
     </form>
-    <button class="btn btn-success" <?php echo ($mod >= 4) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 4) ? "&#10003" : "&#10008"; ?></span></button>
+    <form action="../gui/infoteste.php" method="post">
+    	<input type="hidden" name="modulo" value="4">
+    	<input type="submit" value="Teste <?php echo ($mod > 4) ? "&#10003" : "&#10008"; ?>" <?php echo ($mod >= 4) ? "" : "disabled"; ?> class="btn btn-success" id="block_button">
+    </form>
 </div>
 
 <!-- MÓDULO MAM -->
@@ -70,7 +83,10 @@ function print_mods($mod){
         <input type="hidden" name="modulo" value="5">
         <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 5) ? "" : "disabled"; ?> id="block_button">
     </form>
-    <button class="btn btn-success" <?php echo ($mod >= 5) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 5) ? "&#10003" : "&#10008"; ?></span></button>
+    <form action="../gui/infoteste.php" method="post">
+    	<input type="hidden" name="modulo" value="5">
+    	<input type="submit" value="Teste <?php echo ($mod > 5) ? "&#10003" : "&#10008"; ?>" <?php echo ($mod >= 5) ? "" : "disabled"; ?> class="btn btn-success" id="block_button">
+    </form>
 </div>
 
 
@@ -82,8 +98,14 @@ function print_mods($mod){
         <p id="block_label_number"><span class="label label-default">6</span></p>
         <p id="block_label_name">Teste<br>Final</p>
     </div>
-    <!--<button class="btn btn-success" disabled id="block_button">Conteúdo</button>-->
-    <button class="btn btn-success" <?php echo ($mod >= 6) ? "" : "disabled"; ?> id="block_button">Teste <span style="float: right"><?php echo ($mod > 6) ? "&#10003" : "&#10008"; ?></span></button>
+    <form action="../gui/infoteste.php" method="post">
+    	<input type="hidden" name="modulo" value="6">
+    	<input type="submit" value="Teste <?php echo ($mod > 6) ? "&#10003" : "&#10008"; ?>" <?php echo ($mod >= 6) ? "" : "disabled"; ?> class="btn btn-success" id="block_button">
+    </form>
+    <form action="conteudo.php" method="post" style="color: white; visibility: hidden">
+        <input type="hidden" name="modulo" value="5">
+        <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 5) ? "" : "disabled"; ?> id="block_button">
+    </form>
 </div>
 <?php        
 }

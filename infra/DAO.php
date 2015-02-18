@@ -131,6 +131,14 @@ class DAO {
         }
 
     }
+    
+    public static function getModNome($mod){
+    	$stmt = self::$pdo_instance->prepare("SELECT nome FROM modulo WHERE tipo=:tipo");
+    	$stmt->bindValue(":tipo", $mod);
+    	$stmt->execute();
+    	$modulo =  $stmt->fetch(PDO::FETCH_ASSOC);
+    	return $modulo["nome"]; 
+    }
 
 }
 
