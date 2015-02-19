@@ -105,13 +105,13 @@ class DAO {
         $stmt->bindValue(":idaluno", $idaluno);
         $stmt->bindValue(":modulo", $modulo);
         $stmt->execute();
-        while($teste=$stmt->fetch(PDO::FETCH_ASSOC)){
-            if($teste["nota"] >= 7.0){
-                return NULL;
-            }
-        }
+        
         if($modulo <= 5){
-            $num_q = 19;
+            while($teste=$stmt->fetch(PDO::FETCH_ASSOC)){
+                if($teste["nota"] >= 7.0){
+                    return NULL;
+                }
+            }
             $stmt = self::$pdo_instance->prepare("SELECT * FROM questao WHERE tipo=:tipo");
             $stmt->bindValue(":tipo", $modulo);
             $stmt->execute();
@@ -122,13 +122,15 @@ class DAO {
                 $rand = rand(0, count($quests) - 1);
                 $quests_select[] = $quests[$rand];
                 unset($quests[$rand]);
-                array_values($quests);
+                $quests = array_values($quests);
             }
-            $novoteste = new Teste($modulo, $idaluno, $quests_select);
-            return $novoteste;
+            return new Teste($modulo, $idaluno, $quests_select);
         }else{
             
         }
+    }
+
+    public static function associaTeste($email, $teste){
 
     }
     
