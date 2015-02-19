@@ -21,15 +21,8 @@ create table modulo (
 create table  testesrealizados (
 	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	idaluno integer REFERENCES aluno (id) ON DELETE CASCADE,
-	idteste integer REFERENCES teste (id) ON DELETE CASCADE,
 	tipo integer(1) NOT NULL,
-	quantidade integer(2) NOT NULL,
 	nota REAL NOT NULL
-);
-
-create table teste (
-	id integer REFERENCES testesrealizados (id) ON DELETE CASCADE ,
-	questao integer REFERENCES questao (id) ON DELETE CASCADE
 );
 
 create table  questao (
@@ -51,3 +44,5 @@ create table  conteudo (
 	texto TEXT NOT NULL,
 	figura TEXT
 );
+
+/*CHARACTER SET utf8 COLLATE utf8_bin*/

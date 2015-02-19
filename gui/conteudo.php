@@ -54,7 +54,6 @@
                 <a href="main.php">
                     <button class="btn btn-default" type="button" style="width: 100%; margin-bottom: 10%">Tela Principal</button>
                 </a>
-                <button class="btn btn-default" type="button" style="width: 100%">Realizar Tese</button>
             </div>
 
         </div>

@@ -92,26 +92,25 @@ class DAO {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function geraTeste($email, $modulo){
-        $idaluno;
-        $quests = array();
-        $quests_select = array();
+    private static function getIDbyEmail($email){
         $stmt = self::$pdo_instance->prepare("SELECT id FROM aluno WHERE email=:email");
         $stmt->bindValue(":email", $email);
         $stmt->execute();
         $linha = $stmt->fetch(PDO::FETCH_ASSOC);
-        $idaluno = $linha["id"];
+        return $linha["id"];
+    }
+
+    public static function geraTeste($email, $modulo){
+        $idaluno;
+        $quests = array();
+        $quests_select = array();
+        $idaluno = self::getIDbyEmail($email);
         $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE idaluno=:idaluno AND tipo=:modulo");
         $stmt->bindValue(":idaluno", $idaluno);
         $stmt->bindValue(":modulo", $modulo);
         $stmt->execute();
         
         if($modulo <= 5){
-            while($teste=$stmt->fetch(PDO::FETCH_ASSOC)){
-                if($teste["nota"] >= 7.0){
-                    return NULL;
-                }
-            }
             $stmt = self::$pdo_instance->prepare("SELECT * FROM questao WHERE tipo=:tipo");
             $stmt->bindValue(":tipo", $modulo);
             $stmt->execute();
@@ -130,8 +129,29 @@ class DAO {
         }
     }
 
-    public static function associaTeste($email, $teste){
+    public static function computaTeste($email, $teste){
+        $idaluno = self::getIDbyEmail($email);
+        $stmt = self::$pdo_instance->prepare("INSERT INTO testesrealizados(idaluno, tipo, nota) VALUES (:idaluno, :tipo, :nota)");
+        $stmt->bindValue(":idaluno", $idaluno);
+        $stmt->bindValue(":tipo", $teste->getTipo());
+        $stmt->bindValue(":nota", $teste->getNota());
+        $stmt->execute();
+        if($teste->getNota() >= 70){
+            DAO::aprovaAluno($idaluno);
+        }
 
+    }
+
+    private static function aprovaAluno($id){
+        $stmt = self::$pdo_instance->prepare("SELECT modulo FROM aluno WHERE id=:id");
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        $modulo = $res['modulo']; 
+        $stmt = self::$pdo_instance->prepare("UPDATE aluno SET modulo=:modulo WHERE id=:id");
+        $stmt->bindValue(":modulo", ($modulo == 7) ? 7 : ++$modulo);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
     }
     
     public static function getModNome($mod){
@@ -142,6 +162,34 @@ class DAO {
     	return $modulo["nome"]; 
     }
 
+    public static function checaAprovacao($email, $modulo){
+        $idaluno = self::getIDbyEmail($email);
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE idaluno=:idaluno AND tipo=:modulo");
+        $stmt->bindValue(":idaluno", $idaluno);
+        $stmt->bindValue(":modulo", $modulo);
+        $stmt->execute();
+        $status =  array();
+        $status['aprovado'] = FALSE;
+        $status['vezes'] = 0;
+        while($teste=$stmt->fetch(PDO::FETCH_ASSOC)){
+            if($teste["nota"] >= 70){
+                $status['aprovado'] = TRUE;
+            }
+            ++$status['vezes'];
+        }
+        return $status;
+    }
+
+    /*MÉTODOS DE CARÁTER ESTATÍSTICOS*/
+
+
+    public static function getMediaNota($email, $modulo){
+        $idaluno = self::getIDbyEmail($email);
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE idaluno=:idaluno AND tipo=:modulo");
+        $stmt->bindValue(":idaluno", $idaluno);
+        $stmt->bindValue(":modulo", $modulo);
+        $stmt->execute();
+    }
 }
 
 ?>

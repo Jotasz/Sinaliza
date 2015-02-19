@@ -5,7 +5,6 @@
 		private $tipo;
 		private $nota;
 		private $id_aluno;
-		private $tempo; //em segundos
 		private $questoes;
 
 		public function __construct($tipo, $id_aluno, $questoes){
@@ -18,20 +17,12 @@
 			$this->nota = $nota;
 		}
 
-		public function setTempo($tempo){
-			$this->tempo = $tempo;
-		}
-
 		public function getTipo(){
 			return $this->tipo;
 		}
 
 		public function getId_Aluno(){
 			return $this->id_aluno;
-		}
-
-		public function getTempo(){
-			return $this->tempo;
 		}
 
 		public function getQuestoes(){
