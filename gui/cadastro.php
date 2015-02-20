@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="panel-footer" style="padding-bottom: 10%">
-                            <a href="index.php"><button type="button" class="btn btn-default" style="width: 45%; float: left"> Cancelar </button></a>
+                            <a href="../index.php"><button type="button" class="btn btn-default" style="width: 45%; float: left"> Cancelar </button></a>
                             <button type="submit" class="btn btn-default" style="width: 45%; float: right"> Cadastrar-se </button>
                         </div>
                     </form>

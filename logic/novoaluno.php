@@ -8,11 +8,13 @@
 	if($msg = checkCampos($_POST['nome'], $_POST['email'], $_POST['senha'])){
 		$_SESSION['erro_cadastro'] = $msg;
 		header("Location: ../gui/cadastro.php");
+		exit();
 	}
 
-	if(!$_POST['chek']){
+	if(!$_POST['check']){
 		$_SESSION['erro_cadastro'] = "É necessário concordar com os termos.";
 		header("Location: ../gui/cadastro.php");
+		exit();
 	}
 
 	DAO::connect();
@@ -21,9 +23,11 @@
 	if (isset($msg)) {
 	    $_SESSION['erro_cadastro'] = $msg;
 	    header("Location: ../gui/cadastro.php");
+	    exit();
 	} else {
 		$_SESSION['from'] = "cadastro";
 	    header("Location: ../index.php");
+	    exit();
 	}
 	
 ?>
