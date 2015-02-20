@@ -34,7 +34,10 @@
                                 <div class="alert alert-danger" role="alert">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                     <span class="sr-only">Erro:</span>
-                                    <?php echo $_SESSION['erro_cadastro']; ?>
+                                    <?php
+                                        echo $_SESSION['erro_cadastro'];
+                                        unset($_SESSION['erro_cadastro']);
+                                    ?>
                                 </div>
                                     <?php
                                 }

@@ -20,7 +20,8 @@ class DAO {
 
     public static function connect() {
         if (!isset(self::$pdo_instance)) {
-            self::$pdo_instance = new PDO("mysql:host=" . self::$host . ";dbname=" . self::$database, self::$user, self::$password);
+            $dns = "mysql:host=".self::$host .";dbname=".self::$database.";charset=utf8";
+            self::$pdo_instance = new PDO($dns, self::$user, self::$password);
         }
     }
 
@@ -202,6 +203,49 @@ class DAO {
             $qtd++;
         }
         return ($soma/$qtd);
+    }
+
+    public static function getMediaNotaAluno($email, $modulo){
+        $idaluno = self::getIDbyEmail($email);
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE tipo=:modulo AND idaluno=:id");
+        $stmt->bindValue(":modulo", $modulo);
+        $stmt->bindValue(":id", $idaluno);
+        $stmt->execute();
+        $soma = 0;
+        $qtd = 0;
+        while($teste = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $soma += $teste['nota'];
+            $qtd++;
+        }
+        return ($soma/$qtd);
+    }
+
+    public static function getNotasExtremasAluno($email, $modulo){
+        $idaluno = self::getIDbyEmail($email);
+        $notas = array();
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE tipo=:modulo AND idaluno=:id");
+        $stmt->bindValue(":modulo", $modulo);
+        $stmt->bindValue(":id", $idaluno);
+        $stmt->execute();
+        $exists = FALSE;
+        $menor = 100;
+        $maior = 0;
+        while($teste = $stmt->fetch(PDO::FETCH_ASSOC)){
+            if($teste['nota'] < $menor){
+                $menor = $teste['nota'];
+            }
+            if($teste['nota'] > $maior){
+                $maior = $teste['nota'];
+            }
+            $exists = TRUE;
+        }
+        if(!$exists){
+            $menor = -1;
+            $maior = -1;
+        }
+        $notas['menor'] = $menor;
+        $notas['maior'] = $maior;
+        return $notas;
     }
 }
 

@@ -1,5 +1,3 @@
 - ajeitar o lance da barra e da sessão
-- fazer a página de estatísticas
-- fazer os método no dao de estaísticas
 - fazer tratamento dos campos de cadastro
 - ajeitar os radios checkeds por default que não estão contando na validação
