@@ -1,20 +1,16 @@
 <html>
 
-    <head>
-        <title> Sinaliza - Conteúdo</title>
+     <head>
+        <title> Sinaliza - Inicio</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
     </head>
 
     <body>
         <!-- UP BAR -->
-        <div class="alert alert-success" >
-            Olá FULANO
-            <a style="float: right; padding-left: 2%" href=""> Sair</a>
-            <a style="float: right" href=""> Meu Perfil  </a>
-        </div>
 
         <?php
+            require "../gui/upbar.php";
             require_once "../infra/DAO.php";
             DAO::connect();
             $conteudo = DAO::getConteudo($_POST["modulo"]);

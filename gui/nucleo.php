@@ -103,8 +103,8 @@ function print_mods($mod){
     	<input type="submit" value="Teste <?php echo ($mod > 6) ? "&#10003" : "&#10008"; ?>" <?php echo ($mod >= 6) ? "" : "disabled"; ?> class="btn btn-success" id="block_button">
     </form>
     <form action="conteudo.php" method="post" style="color: white; visibility: hidden">
-        <input type="hidden" name="modulo" value="5">
-        <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 5) ? "" : "disabled"; ?> id="block_button">
+        <input type="hidden" name="modulo" value="6">
+        <input type="submit" value="Conteúdo" class="btn btn-success" <?php echo ($mod >= 6) ? "" : "disabled"; ?> id="block_button">
     </form>
 </div>
 <?php        

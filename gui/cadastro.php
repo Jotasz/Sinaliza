@@ -5,13 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" />
         <?php
-        //iniciando a sessão 
         session_start();
-
-        //verifica se precisa inserir mensagem de erro
-        if (isset($_SESSION['erro']) == TRUE) {
-            session_destroy();
-        }
         ?>
     </head>
 
@@ -35,12 +29,12 @@
                             </div>
                             <?php
 
-                            if (isset($_SESSION['mensagem']) == TRUE) {
+                            if (isset($_SESSION['erro_cadastro'])) {
                                 ?>
                                 <div class="alert alert-danger" role="alert">
                                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                     <span class="sr-only">Erro:</span>
-                                    <?php echo $_SESSION['mensagem']; ?>
+                                    <?php echo $_SESSION['erro_cadastro']; ?>
                                 </div>
                                     <?php
                                 }

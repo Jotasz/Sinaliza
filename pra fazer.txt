@@ -1,8 +1,5 @@
 - ajeitar o lance da barra e da sessão
 - fazer a página de estatísticas
 - fazer os método no dao de estaísticas
-- ajeitar a tela de resultado do teste
-- fazer método de asociação de teste - OK
-- fazer geração de teste final
-- tratamento de teste realizado
-- ajeitar botões infotestep.php
+- fazer tratamento dos campos de cadastro
+- ajeitar os radios checkeds por default que não estão contando na validação

@@ -2,6 +2,8 @@ CREATE DATABASE sinal;
 
 USE sinal;
 
+ALTER DATABASE sinal DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 create table aluno (
 	id integer primary key NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	nome varchar(80) NOT NULL,
@@ -44,5 +46,3 @@ create table  conteudo (
 	texto TEXT NOT NULL,
 	figura TEXT
 );
-
-/*CHARACTER SET utf8 COLLATE utf8_bin*/

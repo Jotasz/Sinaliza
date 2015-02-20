@@ -8,24 +8,20 @@
         <link type="text/css" rel="stylesheet" href="../css/elements.css" />
     </head>
     <body>
-         <?php 
+        <?php 
             require_once "../infra/DAO.php";
             require_once "../model/aluno.php";
-            DAO::connect();
+
             session_start();
-            if(isset($_SESSION["email"])){
-                $aluno = DAO::getAluno($_SESSION["email"]);
+            if(isset($_SESSION['email'])){
+                DAO::connect();
+                $aluno = DAO::getAluno($_SESSION['email']);
                 $progresso = round((($aluno->getModulo()-1)*100)/6);
-            }else{
-                header("../util/erro.php");
+                $_SESSION['nome_aluno'] = $aluno->getNome();
             }
+            /*Deve vir depois*/
+            require "upbar.php";
         ?>
-        <!-- UP BAR -->
-        <div class="alert alert-success" >
-            Olá <?php echo $aluno->getNome(); ?>
-            <a style="float: right; padding-left: 2%" href="../util/sair.php"> Sair</a>
-            <a style="float: right" href=""> Meu Perfil  </a>
-        </div>
 
 
         <div style="padding: 2% 2% 2% 2%">

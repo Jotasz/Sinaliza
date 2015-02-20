@@ -6,7 +6,7 @@
         <link type="text/css" rel="stylesheet" href="css/elements.css" />
     </head>
 
-    <body>	
+    <body>
         <div style="padding: 5% 5% 5% 5%;">
             <div style="width: 45%; float: left">
                 <p style="text-align: center"><img src="sinal_image.png"/></p>
@@ -35,27 +35,41 @@
                         </div>
                     </form> 
                 </div>
+
+                 
+
                 <?php
-                //iniciando a sessão 
                 session_start();
-
-                if (isset($_SESSION['email']) == TRUE && isset($_SESSION['senha']) == TRUE) {
-                    header("Location: main.php");
-                }
-
-                //verifica se precisa inserir mensagem de erro
-                if (isset($_SESSION['erro']) == TRUE) {
-                    ?>
-                    <div class="alert alert-danger" role="alert">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Erro:</span>
-                        Email ou Senha inválidos.
-                    </div>
+                if(isset($_SESSION['from'])){
+                    if($_SESSION['from'] == "login"){
+                        if(!isset($_SESSION['email'])){?>
+                            <div class="alert alert-danger" role="alert">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Erro:</span>
+                                Email ou Senha inválidos.
+                            </div>
+                        <?php
+                        }
+                    }
+                    if($_SESSION['from'] == "cadastro"){?>
+                        <div class="alert alert-success" role="alert">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            <span class="sr-only">Erro:</span>
+                            Cadastro realizado com sucesso!
+                        </div>
                     <?php
-                    $_SESSION['erro'] = "erro";
-                } else {
-                    $_SESSION['erro'] = "erro";
+                    }
+                    if($_SESSION['from'] == "inside_page"){?>
+                        <div class="alert alert-info" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Erro:</span>
+                            É necessário logar-se para acessar.
+                        </div>
+                    <?php
+                    }
+                    unset($_SESSION['from']);
                 }
+
                 ?>
 
             </div>

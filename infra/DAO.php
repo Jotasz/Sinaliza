@@ -100,32 +100,40 @@ class DAO {
         return $linha["id"];
     }
 
-    public static function geraTeste($email, $modulo){
-        $idaluno;
-        $quests = array();
+    public static function geraTeste($modulo){
         $quests_select = array();
-        $idaluno = self::getIDbyEmail($email);
-        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE idaluno=:idaluno AND tipo=:modulo");
-        $stmt->bindValue(":idaluno", $idaluno);
-        $stmt->bindValue(":modulo", $modulo);
-        $stmt->execute();
         
         if($modulo <= 5){
-            $stmt = self::$pdo_instance->prepare("SELECT * FROM questao WHERE tipo=:tipo");
-            $stmt->bindValue(":tipo", $modulo);
-            $stmt->execute();
-            while ($questao=$stmt->fetch(PDO::FETCH_ASSOC)) {
-                $quests[] = $questao;
-            }
-            while(count($quests_select) < 10){
-                $rand = rand(0, count($quests) - 1);
-                $quests_select[] = $quests[$rand];
-                unset($quests[$rand]);
-                $quests = array_values($quests);
-            }
-            return new Teste($modulo, $idaluno, $quests_select);
+            self::getNQuestoesFrom(10,$modulo,$quests_select);
         }else{
-            
+            //6 quest. de Primeiro Socorros
+            self::getNQuestoesFrom(6,1,$quests_select);
+            //6 quest. de Mecânica
+            self::getNQuestoesFrom(6,2,$quests_select);
+            //6 quest. de Legislação
+            self::getNQuestoesFrom(11,3,$quests_select);
+            //6 quest. de Direção Def.
+            self::getNQuestoesFrom(11,4,$quests_select);
+            //6 quest. de Meio Ambiente
+            self::getNQuestoesFrom(6,5,$quests_select);
+        }
+        return new Teste($modulo, $idaluno, $quests_select);
+    }
+
+    private static function getNQuestoesFrom($num_q, $modulo, &$array_to_append){
+        $quests = array();
+        $count = 0;
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM questao WHERE tipo=:tipo");
+        $stmt->bindValue(":tipo", $modulo);
+        $stmt->execute();
+        while ($questao = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $quests[] = $questao;
+        }
+        while($coun++ < $num_q){
+            $rand = rand(0, count($quests) - 1);
+            $array_to_append[] = $quests[$rand];
+            unset($quests[$rand]);
+            $quests = array_values($quests);
         }
     }
 
@@ -183,12 +191,17 @@ class DAO {
     /*MÉTODOS DE CARÁTER ESTATÍSTICOS*/
 
 
-    public static function getMediaNota($email, $modulo){
-        $idaluno = self::getIDbyEmail($email);
-        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE idaluno=:idaluno AND tipo=:modulo");
-        $stmt->bindValue(":idaluno", $idaluno);
+    public static function getMediaNota($modulo){
+        $stmt = self::$pdo_instance->prepare("SELECT * FROM testesrealizados WHERE tipo=:modulo");
         $stmt->bindValue(":modulo", $modulo);
         $stmt->execute();
+        $soma = 0;
+        $qtd = 0;
+        while($teste = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $soma += $teste['nota'];
+            $qtd++;
+        }
+        return ($soma/$qtd);
     }
 }
 

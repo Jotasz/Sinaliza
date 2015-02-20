@@ -8,14 +8,9 @@
     </head>
 
     <body>
-        <!-- UP BAR -->
-        <div class="alert alert-success" style="margin-bottom: 5%" >
-            Olá FULANO
-            <a style="float: right; padding-left: 2%" href=""> Sair</a>
-            <a style="float: right" href=""> Meu Perfil  </a>
-        </div>
 
         <?php
+            require "../gui/upbar.php";
             require_once "../model/aluno.php";
             require_once "../infra/DAO.php";
         ?>
@@ -29,7 +24,7 @@
             <?php 
                 session_start();
                 DAO::connect();
-                $teste = DAO::geraTeste($_SESSION["email"], $_POST["modulo"]);
+                $teste = DAO::geraTeste($_POST["modulo"]);
                 $i = 1;
                 foreach ($teste->getQuestoes() as $questao) {
             
@@ -57,12 +52,12 @@
                         </div>
                     </div>";
                     $i++;
-            }
-            $_SESSION['teste'] = serialize($teste);
+                }
+                $_SESSION['teste'] = serialize($teste);
             ?>
-            <input type="submit" value="Finalizar" class="btn btn-default" style="float: right; width: 13%; margin-left: 2%">
+            <input type="submit" value="Finalizar" class="btn btn-default" style="float: right; width: 13%; margin-left: 2%; margin-bottom: 5%">
             <a href="main.php">
-            <button type="button" class="btn btn-default" style="float: right; width: 13%; margin-left: 2%">Desistir</button>
+            <button type="button" class="btn btn-default" style="float: right; width: 13%; margin-left: 2%; margin-bottom: 5%">Desistir</button>
             </a>
             </form>
             <!-- FIM DO LAÇO DE ESCRITA DAS QUESTÕES -->
